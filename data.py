@@ -18,3 +18,6 @@ TEXT_GET_DRIVE_BUTTON = "Забронировать"
 TEXT_FROM_TAB_OPTIMAL = "Оптимальный"
 TEXT_FROM_TAB_FAST = "Быстрый"
 TEXT_FROM_TAB_SELF = "Свой"
+
+# список тарифов такси
+EXPECTED_TARIFFS_TAXI_LIST = ["Рабочий", "Сонный", "Отпускной", "Разговорчивый", "Утешительный", "Глянцевый"]

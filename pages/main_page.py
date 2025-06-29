@@ -113,3 +113,8 @@ class MainPage(BasePage):
     def get_text_from_choose_route_panel_button(self):
         self.find_element_with_wait_clickable(main_page_locators.CHOOSE_ROUTE_PANEL_BUTTON_LOCATOR)
         return self.get_text_from_element(main_page_locators.CHOOSE_ROUTE_PANEL_BUTTON_LOCATOR)
+
+    @allure.step("Нажимаем на кнопку на панели выбора маршрута")
+    def click_on_choose_route_panel_button(self):
+        self.find_element_with_wait_clickable(main_page_locators.CHOOSE_ROUTE_PANEL_BUTTON_LOCATOR)
+        self.click_on_element(main_page_locators.CHOOSE_ROUTE_PANEL_BUTTON_LOCATOR)

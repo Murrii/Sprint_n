@@ -27,3 +27,11 @@ def driver_option_bike(driver_with_addresses):
     page.click_on_tab_self()
     page.click_on_bike_option()
     yield driver_with_addresses
+
+@allure.title("Открываем окно выбора тарифа такси")
+@pytest.fixture
+def driver_open_choose_taxi_panel(driver_with_addresses):
+    page = MainPage(driver_with_addresses)
+    page.click_on_tab_fast()
+    page.click_on_choose_route_panel_button()
+    yield driver_with_addresses
