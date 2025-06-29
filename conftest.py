@@ -19,4 +19,11 @@ def driver_with_addresses(driver):
     page.fill_start_address_field(FIRST_ADDRESS)
     page.fill_end_address_field(SECOND_ADDRESS)
     yield driver
-    driver.quit()
+
+@allure.title("Открываем главную страницу, вводим два адреса, выбираем опцию Велосипед")
+@pytest.fixture
+def driver_option_bike(driver_with_addresses):
+    page = MainPage(driver_with_addresses)
+    page.click_on_tab_self()
+    page.click_on_bike_option()
+    yield driver_with_addresses

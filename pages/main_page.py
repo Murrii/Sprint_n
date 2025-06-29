@@ -68,3 +68,48 @@ class MainPage(BasePage):
     def get_text_from_active_tab(self):
         self.find_element_with_wait_visibility(main_page_locators.ACTIVE_TAB_LOCATOR)
         return self.get_text_from_element(main_page_locators.ACTIVE_TAB_LOCATOR)
+
+    @allure.step("Проверяем доступность опции 'Авто'")
+    def is_car_option_available(self):
+        return self.is_element_not_disable(main_page_locators.SELF_OPTION_CAR_LOCATOR)
+
+    @allure.step("Проверяем доступность опции 'Пешком'")
+    def is_walk_option_available(self):
+        return self.is_element_not_disable(main_page_locators.SELF_OPTION_WALK_LOCATOR)
+
+    @allure.step("Проверяем доступность опции 'Такси'")
+    def is_taxi_option_available(self):
+        return self.is_element_not_disable(main_page_locators.SELF_OPTION_TAXI_LOCATOR)
+
+    @allure.step("Проверяем доступность опции 'Велосипед'")
+    def is_bike_option_available(self):
+        return self.is_element_not_disable(main_page_locators.SELF_OPTION_BIKE_LOCATOR)
+
+    @allure.step("Выбираем опцию Велосипед")
+    def click_on_bike_option(self):
+        self.find_element_with_wait_clickable(main_page_locators.SELF_OPTION_BIKE_LOCATOR)
+        self.click_on_element(main_page_locators.SELF_OPTION_BIKE_LOCATOR)
+
+    @allure.step("Проверяем доступность опции 'Самокат'")
+    def is_scooter_option_available(self):
+        return self.is_element_not_disable(main_page_locators.SELF_OPTION_SCOOTER_LOCATOR)
+
+    @allure.step("Проверяем доступность опции 'Драйв'")
+    def is_drive_option_available(self):
+        return self.is_element_not_disable(main_page_locators.SELF_OPTION_DRIVE_LOCATOR)
+
+    @allure.step("Выбираем опцию Драйв")
+    def click_on_drive_option(self):
+        self.find_element_with_wait_clickable(main_page_locators.SELF_OPTION_DRIVE_LOCATOR)
+        self.click_on_element(main_page_locators.SELF_OPTION_DRIVE_LOCATOR)
+
+    @allure.step("Проверяем доступность всех опций")
+    def is_all_options_available(self):
+        return (self.is_car_option_available() and self.is_walk_option_available() and
+                self.is_taxi_option_available() and self.is_bike_option_available() and
+                self.is_scooter_option_available and self.is_drive_option_available)
+
+    @allure.step("Получаем текст отображаемой на панели выбора маршрута кнопки")
+    def get_text_from_choose_route_panel_button(self):
+        self.find_element_with_wait_clickable(main_page_locators.CHOOSE_ROUTE_PANEL_BUTTON_LOCATOR)
+        return self.get_text_from_element(main_page_locators.CHOOSE_ROUTE_PANEL_BUTTON_LOCATOR)

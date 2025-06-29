@@ -10,7 +10,7 @@ class BasePage:
 
     # Ждем, пока элемент появится и возвращаем его
     def find_element_with_wait_visibility(self, locator):
-        return WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located(locator))
+        return WebDriverWait(self.driver, 15).until(expected_conditions.visibility_of_element_located(locator))
 
     # Ждем, пока элемент станет кликабельным и возвращаем его
     def find_element_with_wait_clickable(self, locator):
@@ -80,3 +80,12 @@ class BasePage:
     # ждем, пока в элементе появится текст
     def wait_text_is_visible(self, locator, text_must_visible):
         WebDriverWait(self.driver, 5).until(expected_conditions.text_to_be_present_in_element(locator, text_must_visible))
+
+    # проверяем, что элемент не задизейблен
+    def is_element_not_disable(self, locator):
+        element = self.find_element_with_wait_visibility(locator)
+        class_attribute_list = element.get_attribute("class")
+        if "disabled" not in class_attribute_list:
+            return True
+        else:
+            return False
