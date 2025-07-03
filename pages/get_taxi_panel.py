@@ -46,3 +46,48 @@ class GetTaxiPanel(BasePage):
             return True
         else:
             return False
+
+    @allure.step("Нажимаем на тариф Рабочий")
+    def click_on_work_tariff(self):
+        self.click_on_element(get_taxi_panel_locators.TAXI_TARIFFS_TARIFF_WORK_LOCATOR)
+
+    @allure.step("Нажимаем на тариф Сонный")
+    def click_on_sleep_tariff(self):
+        self.click_on_element(get_taxi_panel_locators.TAXI_TARIFFS_TARIFF_SLEEP_LOCATOR)
+
+    @allure.step("Нажимаем на тариф Отпускной")
+    def click_on_holiday_tariff(self):
+        self.click_on_element(get_taxi_panel_locators.TAXI_TARIFFS_TARIFF_HOLIDAY_LOCATOR)
+
+    @allure.step("Нажимаем на тариф Разговорчивый")
+    def click_on_talk_tariff(self):
+        self.click_on_element(get_taxi_panel_locators.TAXI_TARIFFS_TARIFF_TALK_LOCATOR)
+
+    @allure.step("Нажимаем на тариф Утешительный")
+    def click_on_glad_tariff(self):
+        self.click_on_element(get_taxi_panel_locators.TAXI_TARIFFS_TARIFF_GLAD_LOCATOR)
+
+    @allure.step("Нажимаем на тариф Глянцевый")
+    def click_on_glam_tariff(self):
+        self.click_on_element(get_taxi_panel_locators.TAXI_TARIFFS_TARIFF_GLAM_LOCATOR)
+
+    @allure.step("Наводим курсор на иконку i для активной вкладки и удерживаем его 5 секунд")
+    def focus_on_info_icon(self):
+        self.focus_on_element(get_taxi_panel_locators.TAXI_TARIFFS_ACTIVE_INFO_BUTTON_LOCATOR)
+
+
+    @allure.step("Проверяем, что отображается окно с подсказкой")
+    def is_info_panel_visible(self):
+        return self.is_element_visible(get_taxi_panel_locators.TAXI_TARIFFS_ACTIVE_INFO_DESCRIPTION_LOCATOR)
+
+    @allure.step("Получаем заголовок окна с подсказкой")
+    def get_info_panel_title(self):
+        self.find_element_with_wait_visibility(get_taxi_panel_locators.TAXI_TARIFFS_ACTIVE_INFO_TITLE_TEXT_LOCATOR)
+        return self.get_text_from_element(get_taxi_panel_locators.TAXI_TARIFFS_ACTIVE_INFO_TITLE_TEXT_LOCATOR)
+
+    @allure.step("Получаем описание окна с подсказкой")
+    def get_info_panel_description(self):
+        self.find_element_with_wait_visibility(get_taxi_panel_locators.TAXI_TARIFFS_ACTIVE_INFO_DESCRIPTION_LOCATOR)
+        return self.get_text_from_element(get_taxi_panel_locators.TAXI_TARIFFS_ACTIVE_INFO_DESCRIPTION_LOCATOR)
+
+

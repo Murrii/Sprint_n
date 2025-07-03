@@ -21,3 +21,11 @@ TEXT_FROM_TAB_SELF = "Свой"
 
 # список тарифов такси
 EXPECTED_TARIFFS_TAXI_LIST = ["Рабочий", "Сонный", "Отпускной", "Разговорчивый", "Утешительный", "Глянцевый"]
+
+# тексты для карточек с подсказками для тарифов такси
+TARIFFS_INFO_WORK_TEXTS = {"title": "Рабочий", "description": "Для деловых особ, которых отвлекают"}
+TARIFFS_INFO_SLEEP_TEXTS = {"title": "Сонный", "description": "Для тех, кто не выспался"}
+TARIFFS_INFO_HOLIDAY_TEXTS = {"title": "Отпускной", "description": "Если пришла пора отдохнуть"}
+TARIFFS_INFO_TALK_TEXTS = {"title": "Разговорчивый", "description": "Если мысли не выходят из головы"}
+TARIFFS_INFO_GLAD_TEXTS = {"title": "Утешительный", "description": "Если хочется свернуться калачиком"}
+TARIFFS_INFO_GLAM_TEXTS = {"title": "Глянцевый", "description": "Если нужно блистать"}

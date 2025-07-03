@@ -1,4 +1,7 @@
+import pytest
 from pages.get_taxi_panel import GetTaxiPanel
+from data import (TARIFFS_INFO_WORK_TEXTS, TARIFFS_INFO_SLEEP_TEXTS, TARIFFS_INFO_HOLIDAY_TEXTS,
+                  TARIFFS_INFO_TALK_TEXTS, TARIFFS_INFO_GLAD_TEXTS, TARIFFS_INFO_GLAM_TEXTS)
 import allure
 
 
@@ -13,3 +16,26 @@ class TestGetTaxiNamePage:
     def test_tariffs_list_include_active_tariff(self, driver_open_choose_taxi_panel):
         page = GetTaxiPanel(driver_open_choose_taxi_panel)
         assert page.is_active_tariff_in_tariff_names_list()
+
+    @allure.title("При наведении на i отображается подсказка с информацией о тарифе")
+    def test_focus_on_info_button_shows_info_panel(self, driver_open_choose_taxi_panel):
+        page = GetTaxiPanel(driver_open_choose_taxi_panel)
+        page.focus_on_info_icon()
+        assert page.is_info_panel_visible()
+
+    @allure.title("Проверка текстов карточки инфо на соответствие ТЗ для всех тарифов (параметризация)")
+    @pytest.mark.xfail(reason="описания для тарифов Сонный и Разговорчивый перепутаны местами")
+    @pytest.mark.parametrize('click_on_tariff_method, result_texts_dict', [(GetTaxiPanel.click_on_work_tariff, TARIFFS_INFO_WORK_TEXTS),
+                                                                           (GetTaxiPanel.click_on_sleep_tariff, TARIFFS_INFO_SLEEP_TEXTS),
+                                                                           (GetTaxiPanel.click_on_holiday_tariff, TARIFFS_INFO_HOLIDAY_TEXTS),
+                                                                           (GetTaxiPanel.click_on_talk_tariff, TARIFFS_INFO_TALK_TEXTS),
+                                                                           (GetTaxiPanel.click_on_glad_tariff, TARIFFS_INFO_GLAD_TEXTS),
+                                                                           (GetTaxiPanel.click_on_glam_tariff, TARIFFS_INFO_GLAM_TEXTS)])
+    def test_info_panel_title_and_description_match_with_expected_texts(self, driver_open_choose_taxi_panel,
+                                                                        click_on_tariff_method, result_texts_dict):
+        page = GetTaxiPanel(driver_open_choose_taxi_panel)
+        click_on_tariff_method(page)
+        page.focus_on_info_icon()
+        actual_title = page.get_info_panel_title()
+        actual_description = page.get_info_panel_description()
+        assert actual_title == result_texts_dict['title'] and actual_description == result_texts_dict['description']

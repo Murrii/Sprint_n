@@ -89,3 +89,9 @@ class BasePage:
             return True
         else:
             return False
+
+    # наводим фокус на элемент
+    def focus_on_element(self, locator):
+        element = self.find_element_with_wait_visibility(locator)
+        action = ActionChains(self.driver).move_to_element(element)
+        action.perform()
