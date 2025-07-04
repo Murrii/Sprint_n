@@ -7,7 +7,6 @@ import allure
 class GetTaxiPanel(BasePage):
     @allure.step("Получаем имя активного тарифа")
     def get_active_tariff_name(self):
-        self.find_element_with_wait_visibility(get_taxi_panel_locators.TAXI_TARIFFS_ACTIVE_TARIFF_NAME_LOCATOR)
         return self.get_text_from_element(get_taxi_panel_locators.TAXI_TARIFFS_ACTIVE_TARIFF_NAME_LOCATOR)
 
     @allure.step("Получаем список всех отображающихся тарифов")
@@ -82,12 +81,30 @@ class GetTaxiPanel(BasePage):
 
     @allure.step("Получаем заголовок окна с подсказкой")
     def get_info_panel_title(self):
-        self.find_element_with_wait_visibility(get_taxi_panel_locators.TAXI_TARIFFS_ACTIVE_INFO_TITLE_TEXT_LOCATOR)
         return self.get_text_from_element(get_taxi_panel_locators.TAXI_TARIFFS_ACTIVE_INFO_TITLE_TEXT_LOCATOR)
 
     @allure.step("Получаем описание окна с подсказкой")
     def get_info_panel_description(self):
-        self.find_element_with_wait_visibility(get_taxi_panel_locators.TAXI_TARIFFS_ACTIVE_INFO_DESCRIPTION_LOCATOR)
         return self.get_text_from_element(get_taxi_panel_locators.TAXI_TARIFFS_ACTIVE_INFO_DESCRIPTION_LOCATOR)
+
+    @allure.step("Получаем текст поля Телефон")
+    def get_text_from_extra_info_phone_field(self):
+        return self.get_text_from_element(get_taxi_panel_locators.EXTRA_INFO_PHONE_FIELD_TEXT_LOCATOR)
+
+    @allure.step("Получаем текст поля Способ оплаты")
+    def get_text_from_extra_info_payment_field(self):
+        return self.get_text_from_element(get_taxi_panel_locators.EXTRA_INFO_PAYMENT_INFO_TEXT_LOCATOR)
+
+    @allure.step("Получаем текст поля Комментарий водителю")
+    def get_text_from_extra_info_comment_field(self):
+        return self.get_text_from_element(get_taxi_panel_locators.EXTRA_INFO_COMMENT_FIELD_TEXT_LOCATOR)
+
+    @allure.step("Получаем заголовок блока Требования к заказу")
+    def get_text_from_extra_info_extra_wishes_field(self):
+        return self.get_text_from_element(get_taxi_panel_locators.EXTRA_INFO_EXTRA_WISHES_TEXT_LOCATOR)
+
+    @allure.step("Получаем текст кнопки Заказать такси")
+    def get_text_from_extra_info_get_taxi_button(self):
+        return self.get_text_from_element(get_taxi_panel_locators.EXTRA_INFO_GET_TAXI_BUTTON_TEXT_LOCATOR)
 
 
