@@ -37,3 +37,11 @@ EXTRA_INFO_PAYMENT_INFO_TEXT = "Способ оплаты"
 EXTRA_INFO_COMMENT_FIELD_TEXT = "Комментарий водителю..."
 EXTRA_INFO_EXTRA_WISHES_TEXT = "Требования к заказу"
 EXTRA_INFO_GET_TAXI_BUTTON_TEXT = "Ввести номер и заказать"
+
+
+# Панель ожидания такси
+SEARCH_TAXI_TITLE_TEXT = "Поиск машины"
+SEARCH_TAXI_RETURN_BUTTON_TEXT = "Отменить"
+SEARCH_TAXI_DETAILS_BUTTON_TEXT = "Детали"
+
+SEARCH_TAXI_FINISHED_ORDER_TITLE_TEXT = " мин. и приедет"

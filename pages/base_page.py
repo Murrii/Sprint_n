@@ -79,7 +79,7 @@ class BasePage:
 
     # ждем, пока в элементе появится текст
     def wait_text_is_visible(self, locator, text_must_visible):
-        WebDriverWait(self.driver, 5).until(expected_conditions.text_to_be_present_in_element(locator, text_must_visible))
+        WebDriverWait(self.driver, 45).until(expected_conditions.text_to_be_present_in_element(locator, text_must_visible))
 
     # проверяем, что элемент не задизейблен
     def is_element_not_disable(self, locator):
@@ -95,3 +95,8 @@ class BasePage:
         element = self.find_element_with_wait_visibility(locator)
         action = ActionChains(self.driver).move_to_element(element)
         action.perform()
+
+    # пролистываем блок до конца списка
+    def move_to_down_in_container(self, container_locator):
+        self.driver.execute_script("arguments[0].scrollTop = arguments[0].scrollHeight", container_locator)
+

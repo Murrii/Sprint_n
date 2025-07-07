@@ -1,3 +1,5 @@
+from time import sleep
+
 import pytest
 from pages.get_taxi_panel import GetTaxiPanel
 from data import (TARIFFS_INFO_WORK_TEXTS, TARIFFS_INFO_SLEEP_TEXTS, TARIFFS_INFO_HOLIDAY_TEXTS,
@@ -43,7 +45,7 @@ class TestGetTaxiNamePage:
         assert actual_title == result_texts_dict['title'] and actual_description == result_texts_dict['description']
 
     @allure.title("Проверяем, состав блока доп. информации к заказу")
-    @allure.description("Проверяем, что все поля присутствуют ч что заголовки соответствуют ТЗ")
+    @allure.description("Проверяем, что все поля присутствуют и что заголовки соответствуют ТЗ")
     def test_extra_info_panel_include_phone_payment_comment_and_extra_wishes_fields(self, driver_open_choose_taxi_panel):
         page = GetTaxiPanel(driver_open_choose_taxi_panel)
         assert (page.get_text_from_extra_info_phone_field() == EXTRA_INFO_PHONE_FIELD_TEXT and
@@ -51,4 +53,3 @@ class TestGetTaxiNamePage:
                 page.get_text_from_extra_info_comment_field() == EXTRA_INFO_COMMENT_FIELD_TEXT and
                 page.get_text_from_extra_info_extra_wishes_field() == EXTRA_INFO_EXTRA_WISHES_TEXT and
                 page.get_text_from_extra_info_get_taxi_button() == EXTRA_INFO_GET_TAXI_BUTTON_TEXT)
-

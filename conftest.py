@@ -3,6 +3,7 @@ import pytest
 from selenium import webdriver
 from data import BASE_URL, FIRST_ADDRESS, SECOND_ADDRESS
 from pages.main_page import MainPage
+from pages.get_taxi_panel import GetTaxiPanel
 
 @allure.title("Открываем главную страницу")
 @pytest.fixture
@@ -35,3 +36,14 @@ def driver_open_choose_taxi_panel(driver_with_addresses):
     page.click_on_tab_fast()
     page.click_on_choose_route_panel_button()
     yield driver_with_addresses
+
+@allure.title("Открываем окно поиска такси (тариф Рабочий + столик для ноутбука)")
+@pytest.fixture
+def driver_open_search_taxi_panel(driver_open_choose_taxi_panel):
+    page = GetTaxiPanel(driver_open_choose_taxi_panel)
+    page.click_on_work_tariff()
+    page.click_on_extra_wishes_title()
+    page.scroll_down_extra_panel()
+    page.click_on_extra_wishes_laptop_checkbox()
+    page.click_on_extra_info_get_taxi_button()
+    yield driver_open_choose_taxi_panel

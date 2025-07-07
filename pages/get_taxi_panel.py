@@ -107,4 +107,22 @@ class GetTaxiPanel(BasePage):
     def get_text_from_extra_info_get_taxi_button(self):
         return self.get_text_from_element(get_taxi_panel_locators.EXTRA_INFO_GET_TAXI_BUTTON_TEXT_LOCATOR)
 
+    @allure.step("Раскрываем блок с требованиями к заказу и прокручиваем вниз")
+    def click_on_extra_wishes_title(self):
+        self.click_on_element(get_taxi_panel_locators.EXTRA_INFO_EXTRA_WISHES_CUT_LOCATOR)
+
+    @allure.step("Прокручиваем вниз панель с доп. опциями")
+    def scroll_down_extra_panel(self):
+        extra_info_panel = self.find_element_with_wait_clickable(get_taxi_panel_locators.EXTRA_INFO_PANEL_LOCATOR)
+        self.move_to_down_in_container(extra_info_panel)
+
+    @allure.step("Нажимаем на чекбокс Столик для ноутбука")
+    def click_on_extra_wishes_laptop_checkbox(self):
+        self.find_element_with_wait_clickable(get_taxi_panel_locators.EXTRA_INFO_LAPTOP_CHECKBOX_LOCATOR)
+        self.click_on_element(get_taxi_panel_locators.EXTRA_INFO_LAPTOP_CHECKBOX_LOCATOR)
+
+    @allure.step("Нажимаем на кнопку Заказать такси")
+    def click_on_extra_info_get_taxi_button(self):
+        self.click_on_element(get_taxi_panel_locators.EXTRA_INFO_GET_TAXI_BUTTON_TEXT_LOCATOR)
+
 
