@@ -125,4 +125,9 @@ class GetTaxiPanel(BasePage):
     def click_on_extra_info_get_taxi_button(self):
         self.click_on_element(get_taxi_panel_locators.EXTRA_INFO_GET_TAXI_BUTTON_TEXT_LOCATOR)
 
+    @allure.step("Получаем стоимость маршрута")
+    def get_taxi_order_price(self):
+        string_with_price = self.get_text_from_element(get_taxi_panel_locators.TAXI_TARIFFS_ACTIVE_INFO_PRICE_LOCATOR)
+        price_and_rub_list = string_with_price.split(' ')
+        return price_and_rub_list[0]
 

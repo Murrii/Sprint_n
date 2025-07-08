@@ -8,6 +8,7 @@ TAXI_TARIFFS_ACTIVE_TARIFF_NAME_LOCATOR = (By.XPATH, ".//div[@class='tcard activ
 TAXI_TARIFFS_ACTIVE_INFO_BUTTON_LOCATOR = (By.XPATH, ".//div[@class='tcard active']/button[@class = 'i-button tcard-i active']")
 TAXI_TARIFFS_ACTIVE_INFO_TITLE_TEXT_LOCATOR = (By.XPATH, ".//div[@class='tcard active']//div[@class = 'i-title']")
 TAXI_TARIFFS_ACTIVE_INFO_DESCRIPTION_LOCATOR = (By.XPATH, ".//div[@class='tcard active']//div[@class = 'i-dPrefix']")
+TAXI_TARIFFS_ACTIVE_INFO_PRICE_LOCATOR = (By.XPATH, ".//div[@class='tcard active']//div[@class = 'tcard-price']")
 
 # Локаторы для выбора тарифа
 TAXI_TARIFFS_TARIFF_WORK_LOCATOR = (By.XPATH, ".//div[@class='tariff-cards']/div/div[text()='Рабочий']")

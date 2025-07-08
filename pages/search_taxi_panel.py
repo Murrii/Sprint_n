@@ -5,7 +5,7 @@ import allure
 
 class SearchTaxiPanel(BasePage):
     @allure.step("Получаем заголовок окна поиска такси")
-    def get_title(self):
+    def get_title_text(self):
         return self.get_text_from_element(search_taxi_panel_locators.SEARCH_TAXI_TITLE_LOCATOR)
 
     @allure.step("Получаем текст кнопки Отменить")

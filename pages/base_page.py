@@ -38,13 +38,6 @@ class BasePage:
     def fill_text_to_field(self, locator, text):
         self.find_element_with_wait_clickable(locator).send_keys(text)
 
-    # drag-and-drop для chrome
-    def drag_from_drop_to_chrome(self, locator_from, locator_to):
-        element_from = self.find_element_with_wait_clickable(locator_from)
-        element_to = self.find_element_with_wait_clickable(locator_to)
-        action = ActionChains(self.driver)
-        action.drag_and_drop(element_from, element_to).perform()
-
     # получаем текст элемента без указания локатора
     @staticmethod
     def get_text_from_element_without_locator(element):
